@@ -8,12 +8,10 @@ The other 20% are better features anyway.
 TAM is just JSON on the outside, but on the inside is a system that allows you to write interactive adventures.
 You should look up how JSON works to get more of an insight into how it works.
 ## Room Syntax
-All of the room is between `{}`
+All of the room is between `RiD:{}`
 order is irrelevant, capitalisation is **_very important_**.
 A lot of the making it easier tools can be emulated using the syntax for the effects of commands.
-### Room ID
-`"rid":"string"`
-Room Id, used for traversel. 
+In front of the room there has to be the Room Id, used for traversel. 
 Has to be unique or there will be errors.
 ### Short Description
 `"sDesc": "string"`
@@ -50,7 +48,7 @@ options are built according to the instructions written below
 This is to make the game progress. The first option where all prerequisits are met will be chosen.
 ### Flavour Text
 `"fltext":"string"`
-flavour text displayed when ex this is the end of the entry command.
+flavour text displayed when this is the end of the entry command.
 ### Further words
 `commands:{}` _Optional_
 Further commands down the line.
