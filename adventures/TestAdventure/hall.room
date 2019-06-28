@@ -1,0 +1,10 @@
+{"sDesc":"hall",
+"lDesc":"You enter a long and barren hall. All you can see are the",
+"commands":{"look|l":
+[{"fltext":"it is a long hallway","onfail":"I can't see {left}",
+"commands":{
+"wall|thing":[{"fltext":"it's a wall"}]
+}
+}]},
+"exits":{"nw":"hall"},
+"items":["dagger"]}

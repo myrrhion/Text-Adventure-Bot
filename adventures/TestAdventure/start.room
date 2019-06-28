@@ -1,0 +1,5 @@
+{"sDesc":"Test","lDesc":"This is the first test room",
+"commands":{
+"look|l":[{"fltext":"it is a room","execute":["setpflag|nyarp"],"onfail":"I can't see {left}"}]
+},
+"exits":{"nw":"hall"}}
