@@ -3,6 +3,9 @@ DISCLAIMER
 This whole bot is a right mess and hacked together.
 And hopefully the 80% done it needs to work.
 The other 20% are better features anyway.
+
+disregard Anything pushed after PDT 23:59:59 for the competition.
+I will continue working on this since I like it.
 ```
 
 # Text-Adventure-Bot
