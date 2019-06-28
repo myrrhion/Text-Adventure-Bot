@@ -84,7 +84,9 @@ class Game:
 		return [r for r in self.items if r["id"] in lst ]
 	def end(self):
 		for p in self.players:
-			del Glob.active_players[p.id]
+			del Glob.active_players[p.player]
+			print(p.player)
+			del self.players[p]
 		del Glob.running_games[Glob.running_games.index(self)]
 
 class Player:
@@ -241,7 +243,7 @@ def command(acname=None):
 	def wrap(func):
 		name = acname if acname else func.__name__
 		print(name)
-		Glob.functions["!"+name+" "] = func
+		Glob.functions["!"+name] = func
 		return func
 	return wrap
 
@@ -257,7 +259,7 @@ async def on_ready():
 async def on_message(message):
 	#this is where the magic happens
 	for cname in Glob.functions:
-		if message.content.startswith(cname):
+		if message.content.split()[0] == cname:
 			cont = message.content
 			cont = cont.replace(cname,'')
 			cont = cont.strip()
@@ -314,6 +316,10 @@ def load_adventure(name,rep="adventures/"):
 	inv = {}
 	inv["fltext"]= "{left.meta.inventory}"
 	stdget["inventory|inv|i"]= [inv]
+	qui = {}
+	qui["fltext"]= "Good bye"
+	qui["exec"] = ["quitgame|all"]
+	stdget["quit|exit"]= [qui]
 	out["stdget"] = Syntax(stdget)
 	return out
 
@@ -340,7 +346,12 @@ async def start_game(msg, cont):
 	await Glob.running_games[key].player_join(msg.author.id)
 	print("Test done")
 
-
+@command()
+async def quitgame(msg,cont):
+	p = Glob.active_players.get(msg.author.id)
+	if p:
+		p.game.end()
+		
 
 token = open("login.token").readline().strip()
 client.run(token)

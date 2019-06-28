@@ -6,5 +6,5 @@
 "wall|thing":[{"fltext":"it's a wall"}]
 }
 }]},
-"exits":{"nw":"hall"},
+"exits":{"se":"start"},
 "items":["dagger"]}

@@ -38,7 +38,9 @@ def gflag(self,value):
 @_setter(acname="gotoroom")
 def gotoroom(self,value):
 	self.cur_room = value
-
+@_setter()
+def quitgame(self,value):
+	self.game.end()
 @_setter()
 def setpflag(self,value):
 	self.pflags.add(value)
